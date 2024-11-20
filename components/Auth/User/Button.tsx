@@ -79,8 +79,8 @@ const AuthUserButton: React.FC<{ user?: User | null }> = ({ user }) => {
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
-        <Link href="/auth/login" className="btn primary">
-          Login
+        <Link href="/auth/register" className="btn md primary">
+          Sign Up
         </Link>
       )}
 

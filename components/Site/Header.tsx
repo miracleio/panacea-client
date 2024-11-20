@@ -19,7 +19,7 @@ const SiteHeader = () => {
             <ul className="flex h-full flex-wrap items-center gap-4">
               {!user && (
                 <li className="flex items-center">
-                  <Link href="/auth/register">Sign Up</Link>
+                  <Link href="/auth/login">Login</Link>
                 </li>
               )}
               <li className="flex items-center">
