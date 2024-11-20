@@ -22,7 +22,7 @@ const Logout = () => {
     handleLogout();
   }, []);
   return (
-    <section className="site-section flex w-full flex-col max-lg:px-0 lg:justify-center">
+    <section className="site-section flex w-full flex-col lg:justify-center">
       <div className="wrapper">
         <header className="section-header my-12">
           <div className="wrapper">

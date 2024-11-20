@@ -12,10 +12,8 @@ mutation RefreshToken($token: String!) {
 
 const refreshToken = async (
   {
-    accessToken,
     token,
   }: {
-    accessToken: string;
     token: string;
   },
   url?: string,
@@ -29,7 +27,7 @@ const refreshToken = async (
       {
         query: REFRESH_TOKEN_QUERY,
         variables: {
-          token: accessToken,
+          token,
         },
       },
       headers,

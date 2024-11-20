@@ -1,11 +1,9 @@
 import { User } from "@/types/gql/graphql";
 import graphqlRequest from "@/utils/graphQLRequest";
+import { cookies } from "next/headers";
+import handleRefreshToken from "@/utils/auth/refreshToken";
 
 const GRAPHQL_API = process.env.NEXT_PUBLIC_GRAPHQL_API as string;
-
-export type MeResponse = {
-  me: User;
-};
 
 const ME_QUERY = `
 query Me {
@@ -24,11 +22,26 @@ query Me {
 }
 `;
 
-const getMe = async ({ token }: { token: string }, url?: string) => {
+const getMe = async ({ token }: { token?: string }, url?: string) => {
   const headers: { [key: string]: string } = {};
-  if (token) headers.Authorization = `Bearer ${token}`;
 
   try {
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+    } else {
+      const cookiesStore = cookies();
+      const accessToken = cookiesStore.get("accessToken")?.value;
+      const refreshToken = cookiesStore.get("refreshToken")?.value;
+      if (accessToken) {
+        headers.Authorization = `Bearer ${accessToken}`;
+      } else if (refreshToken) {
+        const refreshedToken = await handleRefreshToken({
+          token: refreshToken,
+        });
+        headers.Authorization = `Bearer ${refreshedToken.data?.accessToken}`;
+      }
+    }
+
     const data = await graphqlRequest<{ me: User }>(
       url || GRAPHQL_API,
       {

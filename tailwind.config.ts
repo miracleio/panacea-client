@@ -13,7 +13,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Eczar", ...defualtTheme.fontFamily.sans],
+        sans: ["Host Grotesk", ...defualtTheme.fontFamily.sans],
       },
       colors: {
         background: "hsl(var(--background))",
