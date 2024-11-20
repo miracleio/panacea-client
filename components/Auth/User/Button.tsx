@@ -6,18 +6,14 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Query, User } from "@/types/gql/graphql";
+import { User } from "@/types/gql/graphql";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useShortcut from "@/hooks/useShortcut";
 import { AuthUserLogoutDialog } from "./LogoutDialog";
 import { useRouter } from "next/navigation";
