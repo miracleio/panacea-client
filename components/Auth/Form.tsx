@@ -244,7 +244,7 @@ const AuthForm: React.FC<{
     <>
       <div className="form-cont flex w-full flex-col gap-8 py-12">
         <div className="socials relative flex flex-col items-start justify-center gap-4">
-          <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-1/2 bg-gray-100 px-2 dark:bg-gray-900">
+          <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-1/2 bg-white px-2 dark:bg-gray-900">
             OR
           </span>
           <Link href={googleURL} className="btn primary w-full">

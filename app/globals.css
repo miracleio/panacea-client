@@ -83,7 +83,7 @@
 
 @layer components {
   .btn {
-    @apply inline-flex w-fit items-center justify-center gap-2 rounded-xl border border-gray-300 bg-gray-200 px-4 py-3 font-semibold text-gray-600 shadow-inner shadow-white transition-all hover:brightness-125 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-gray-50 active:scale-95 active:shadow-gray-300/80;
+    @apply inline-flex w-fit items-center justify-center gap-2 rounded-xl border border-gray-300 bg-gray-200 px-6 py-3 font-semibold text-gray-600 shadow-inner shadow-white transition-all ease-in hover:brightness-125 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-gray-50 active:scale-95 active:shadow-gray-300/80;
     @apply dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:shadow-gray-600 dark:ring-offset-gray-950 dark:focus:ring-gray-600 dark:focus:ring-offset-gray-950 dark:active:shadow-gray-900;
   }
 
@@ -92,7 +92,7 @@
   }
 
   .btn.primary {
-    @apply border-green-800 bg-green-700 text-green-50 shadow-green-400 focus:ring-green-500 active:shadow-green-800/60;
+    @apply border-green-800 bg-green-600 text-green-50 shadow-green-400 focus:ring-green-500 active:shadow-green-800/60;
   }
 
   .btn.danger {
