@@ -35,24 +35,29 @@ const generateCapability = (claim: { isMod: boolean }) => {
 };
 
 export const GET = async () => {
-  const session = await getMe({});
-  const user = session?.data?.me;
+  try {
+    const session = await getMe({});
+    const user = session?.data?.me;
 
-  const userClaim = {
-    isMod: false,
-  };
-  const userCapability = generateCapability(userClaim);
+    const userClaim = {
+      isMod: false,
+    };
+    const userCapability = generateCapability(userClaim);
 
-  const token =
-    user?.email &&
-    (await createToken(
-      user?.email,
-      process.env.NEXT_PUBLIC_ABLY_SECRET_KEY as string,
-      userClaim,
-      userCapability,
-    ));
+    const token =
+      user?.email &&
+      (await createToken(
+        user?.email,
+        process.env.NEXT_PUBLIC_ABLY_SECRET_KEY as string,
+        userClaim,
+        userCapability,
+      ));
 
-  console.log({ session, user, userClaim, userCapability, token });
+    console.log({ session, user, userClaim, userCapability, token });
 
-  return Response.json(token || "");
+    return Response.json(token || "");
+  } catch (error) {
+    console.log({ error });
+    return new Response((error as Error).message, { status: 500 });
+  }
 };
